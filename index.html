@@ -394,6 +394,14 @@
                 font-size: 1.5em;
                 padding: 15px;
                 animation: scrollUp 25s linear forwards;
+ /* 位置設定を維持 */
+        position: fixed;
+        top: 50vh;
+        left: 50%;
+        transform: translateX(-50%);
+
+
+
             }
             .reel-container { width: 70px; height: 70px; }
             .reel { font-size: 0.9em; }
@@ -409,9 +417,14 @@
             .game-container { padding: 3px; border-radius: 10px; }
             .bike-game-area { height: 220px; }
             .ending-message { 
-                font-size: 1.2em;
-                animation: scrollUp 30s linear infinite;
-            }
+    font-size: 1.2em;
+    animation: scrollUp 35s linear forwards;
+    /* 位置設定を維持 */
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
             h1 { font-size: 1.5em; margin-bottom: 10px; }
             .obstacle-group { height: 180px; top: 30px; }
             .obstacle.top { height: 45px; }
