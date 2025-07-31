@@ -1179,13 +1179,28 @@ A木山の写真には、なぜか背景にポールが写っていた。
             return messages[Math.floor(Math.random() * messages.length)];
         }
         
-      function showEnding() {
+function showEnding() {
     // ランダムにA,B,C,D,Eのいずれかを選択
     const messageKeys = ['A', 'B', 'C', 'D', 'E'];
     const randomKey = messageKeys[Math.floor(Math.random() * messageKeys.length)];
     
-    document.getElementById('endingMessage').textContent = endingMessages[randomKey];
+    const endingMessage = document.getElementById('endingMessage');
+    endingMessage.textContent = endingMessages[randomKey];
+    
+    // JavaScriptで強制的に位置を設定
+    endingMessage.style.position = 'fixed';
+    endingMessage.style.top = '50vh';
+    endingMessage.style.left = '50%';
+    endingMessage.style.transform = 'translateX(-50%)';
+    endingMessage.style.width = '80%';
+    endingMessage.style.zIndex = '1001';
+    
     document.getElementById('endingScreen').classList.add('show');
+    
+    // 少し待ってからアニメーション開始
+    setTimeout(() => {
+        endingMessage.style.animation = 'scrollUp 25s linear forwards';
+    }, 100);
 }
         
         function animateReel(reelId, wordArray, duration) {
