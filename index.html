@@ -359,17 +359,17 @@
         /* 自動スクロールアニメーション */
         @keyframes scrollUp {
     0% {
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0%);
     }
     100% {
-        transform: translate(-50%, -150%);
+        transform: translate(-50%, 0%);
     }
 }
 
  /* この新しいアニメーションを追加 */
 @keyframes scrollFromCenter {
     0% {
-        top: 50vh;
+        top: 100vh;
         
     }
     100% {
@@ -1191,7 +1191,7 @@ function showEnding() {
     
     // JavaScriptで強制的に位置を設定（スマホ用に調整）
     endingMessage.style.position = 'fixed';
-    endingMessage.style.top = isMobile ? '50%' : '50vh';
+    endingMessage.style.top = isMobile ? '100%' : '100vh';
     endingMessage.style.left = '50%';
     endingMessage.style.transform = 'translate(-50%, -50%)';
     endingMessage.style.width = isMobile ? '90%' : '80%';
