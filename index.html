@@ -365,7 +365,6 @@
         transform: translate(-50%, -150%);
     }
 }
-   
 
  /* この新しいアニメーションを追加 */
 @keyframes scrollFromCenter {
@@ -1187,19 +1186,28 @@ function showEnding() {
     const endingMessage = document.getElementById('endingMessage');
     endingMessage.textContent = endingMessages[randomKey];
     
-    // JavaScriptで強制的に位置を設定
+    // スマホかどうかを判定
+    const isMobile = window.innerWidth <= 768;
+    
+    // JavaScriptで強制的に位置を設定（スマホ用に調整）
     endingMessage.style.position = 'fixed';
-    endingMessage.style.top = '50vh';
+    endingMessage.style.top = isMobile ? '50%' : '50vh';
     endingMessage.style.left = '50%';
-    endingMessage.style.transform = 'translateX(-50%)';
-    endingMessage.style.width = '80%';
+    endingMessage.style.transform = 'translate(-50%, -50%)';
+    endingMessage.style.width = isMobile ? '90%' : '80%';
     endingMessage.style.zIndex = '1001';
+    endingMessage.style.fontSize = isMobile ? '1.2em' : '2em';
+    
+    // デバッグ用：赤い境界線を一時的に追加
+    endingMessage.style.border = '2px solid red';
     
     document.getElementById('endingScreen').classList.add('show');
     
     // 少し待ってからアニメーション開始
     setTimeout(() => {
-        endingMessage.style.animation = 'scrollUp 25s linear forwards';
+        endingMessage.style.animation = isMobile ? 
+            'scrollUpMobile 30s linear forwards' : 
+            'scrollUp 25s linear forwards';
     }, 100);
 }
         
