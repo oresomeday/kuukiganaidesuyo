@@ -1190,11 +1190,11 @@ function showEnding() {
     // スマホかどうかを判定
     const isMobile = window.innerWidth <= 768;
     
-    // JavaScriptで強制的に位置を設定（スマホ用に調整）
-    endingMessage.style.position = 'fixed';
-    endingMessage.style.top = isMobile ? '100%' : '100vh';
-    endingMessage.style.left = '50%';
-    endingMessage.style.transform = 'translate(-50%, -50%)';
+  // JavaScriptで強制的に位置を設定（画面下から開始）
+endingMessage.style.position = 'fixed';
+endingMessage.style.top = '100vh';  // 一番下から開始
+endingMessage.style.left = '50%';
+endingMessage.style.transform = 'translateX(-50%)';  // 横だけ中央
     endingMessage.style.width = isMobile ? '90%' : '80%';
     endingMessage.style.zIndex = '1001';
     endingMessage.style.fontSize = isMobile ? '1.2em' : '2em';
@@ -1204,12 +1204,9 @@ function showEnding() {
     
     document.getElementById('endingScreen').classList.add('show');
     
-    // 少し待ってからアニメーション開始
-    setTimeout(() => {
-        endingMessage.style.animation = isMobile ? 
-            'scrollUpMobile 30s linear forwards' : 
-            'scrollUp 25s linear forwards';
-    }, 100);
+setTimeout(() => {
+    endingMessage.style.animation = 'scrollUp 25s linear forwards';
+}, 100);
 }
         
         function animateReel(reelId, wordArray, duration) {
